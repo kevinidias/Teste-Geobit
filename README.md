@@ -1,91 +1,114 @@
-# Desafio
+# Desafio Programação - Desenvolvedor Python JR
+<br>
 
+## Descrição do Desafio
 
+Pedimos que Leiam este documento do começo ao fim e com atenção, pois este foi contruído com o objetivo de avaliar seus conhecimentos técnicos e lógicos em programação. 
 
-## Getting started
+Dado o arquivo `data.json` o teste consiste em recuperar todos os dados lá contidos e aplicar a eles funções desenvolvidas por você ao longo desse teste. Entre as funções terão:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+* Funções de leitura dos dados;
+* Funções de alteração de alguns dados.
+* Funções de adição de novos dados;
+* Funções de filtragem dos dados;
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Vale salientar que todas as funções de leitura, adição e alteração devem funcionar tanto sozinhas quanto em conjunto as outras funções. 
 
-## Add your files
+Para testagem foi adotada a linguagem `Python` na versão `3.8` e todos os recursos usados para execução deste desafio deve ser compatível com essa versão.  
+<br>
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+## Funções
 
+1. O nascimento atualmente está como timestamp. Faça uma função que para cada pessoa transforme nascimento para dia/mes/ano.
+```python
+def atualiza_nascimento_timestamp_para_date_string(data: list[dict]) -> list[dict]:
+    ...
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/geobitmaster/desafio.git
-git branch -M main
-git push -uf origin main
+
+2. Faça uma função que leia o arquivo JSON e retorne um Dicionário
+```python
+def ler_json() -> list[dict]:
+    ...
 ```
 
-## Integrate with your tools
+3. A altura está atualmente armezanada em `centímetros`, faça uma função que format esse valor para `metros`. 
+```python
+def atualiza_altura_centimentro_para_metros(data: list[dict]) -> list[dict]:
+    ...
+``` 
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/project/integrations/)
+4. Faça uma função que adicione a cada pessoa uma chave imc contendo a categoria do IMC pertencente a ela.
+``` python
+def add_imcs(data: list[dict]) -> list[dict]:
+    """ 
+        Muito abaixo do peso:  menor que 17 kg/m²
+        Abaixo do Peso: Entre 17 kg/m² e 18.4 kg/m²
+        Peso normal: Entre 18.5 kg/m² e 29.9 kg/m²
+        Acima do peso: Entre 30 kg/m² e 34.9 kg/m²
+        Obesidade: Acime de 35 kg/m² 
+    """
+    ...
+```
 
-## Collaborate with your team
+5. Façã uma função que adicione a cada pessoa o seu nome completo e retire as chaves nome e sobrenome
+```python
+def add_nome_completo(data: list[dict]) -> list[dict]:
+    ...
+```
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+6. Para cada pessoa no dicionário, adicione uma chave idade baseado no campo nascimento.
+```python
+def add_idade(data: list[dict]) -> list[dict]
+    ...
+```
 
-## Test and Deploy
+7. Faça uma função que mantenha no dicionário somente pessoas maiores de idade e com IMC acima do peso normal.
+```python
+def filtra_maior_de_idade_com_imc_acima_do_peso(data: list[dict]) -> list[dict]:
+    ...
+```
 
-Use the built-in continuous integration in GitLab.
+8. Faça uma função que mantenha no dicionário somente pessoas do sexo `Feminino` e que moram em `Meeren` no estado de `Braavos`.
+```python
+def filtra_mulheres_de_meeren_braavos(data: list[dict]) -> list[dict]:
+    ...
+```
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://docs.gitlab.com/ee/user/clusters/agent/)
+9. **(Bonus)** - A classe `Run` mostrada a seguir tem como objetivo centralizar todas as funções por você criada. Implemente seus métodos baseando-se nas descrições de cada um.
+```python
+class Run(object):
+    json_data = {
+        "pessoas": [],
+        "filtros": {
+            "menores_de_idade_com_imc_acima_peso": [],
+            "mulheres_meeren_braavos": []
+        }
+    }
 
-***
+    def __init__(self, data):
+        ...
 
-# Editing this README
+    def execute_adicoes_e_atualizacoes(self):
+        """
+            Leia o arquivo json usando a função ler_json e acima do
+            retorno aplique todas as adições e atualizações. Por fim,
+            adicione todas as pessoas já formatadas ao 
+            self.json_data['pessoas']
+        """
+        ...
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:8051d007e6dd08ea719e624ccb7f2d7f?https://www.makeareadme.com/) for this template.
+    def execute_filtros(self):
+        """
+            Aplique cada filtro usando como data a variável 
+            self.json_data['pessoas'] e adicione o resultado em 
+            self.json_data['filtros'] na chave respectiva ao filtro.
+        """
+        ...
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
-
+    def dict_to_json(self):
+        """
+            Transforme o dicionário self.json_data 
+            em um arquivo chamado output.json
+        """
+        ...
+```
