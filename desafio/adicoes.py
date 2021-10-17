@@ -30,7 +30,6 @@ def add_imcs(data):
     return datas
 
 
-
 """add = add_imcs()
 print(add)"""
 
