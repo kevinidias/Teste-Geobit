@@ -17,7 +17,7 @@ class Run(object):
     json_data = {
         "pessoas": [],
         "filtros": {
-            "menores_de_idade_com_imc_acima_peso": [],
+            "maior_de_idade_com_imc_acima_peso": [],
             "mulheres_meeren_braavos": []
         }
     }
@@ -49,11 +49,17 @@ class Run(object):
             self.json_data['filtros'] na chave respectiva ao filtro.
         """
         data = self.json_data['pessoas']
-
+        maior_idade = filtra_maior_de_idade_com_imc_acima_do_peso(data)
+        filtra_mulheres = filtra_mulheres_de_meeren_braavos(data)
+        self.json_data['filtros'][
+            'maior_de_idade_com_imc_acima_peso'] = maior_idade
+        self.json_data['filtros'][
+            'mulheres_meeren_braavos'] = filtra_mulheres
 
     def dict_to_json(self):
         """
-            Transforme o dicionário self.json_data 
+            Transforme o dicionário self.json_data
             em um arquivo chamado output.json
         """
-        ...
+        with open("output.json", "w") as outfile:
+            json.dump(self.json_data, outfile)
